@@ -7,7 +7,7 @@ import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
 const routes: Routes = [
   { path : 'todos/view', component: ViewToDoListComponent}, 
   { path : 'todos/add', component: AddToDoComponent},
-  { path : 'todos/edit', component: EditToDoComponent}
+  { path : 'todos/edit/:id', component: EditToDoComponent}
 ];
 
 @NgModule({
