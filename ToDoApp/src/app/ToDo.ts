@@ -1,4 +1,4 @@
-export default class ToDo {
+export class Todo {
     id: number;
     toDoDescription: string;
     toDoPriority: string;
