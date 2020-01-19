@@ -1,40 +1,65 @@
-<div class="card">
-    <div class="card-body">
-    <form>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Edit ToDo Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-  
-      <div class="form-group">
-       <label for="exampleFormControlSelect1">Status</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-         <option>Not started</option>
-         <option>In progress</option>
-         <option>Completed</option>
-       </select>
-      </div>
-  
-      <div class="form-group">
-       <label for="exampleFormControlSelect1">Priority</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-         <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-        </select>
-      </div>
-   
-      <div class="form-group">
-       <label >Due date:</label>
-       <input  type="text" class="form-control" placeholder="MM/DD/YYYY"/>
-      </div>
-  
-     
-      <div class="form-group">
-         <button type="submit" class="btn btn-primary"
-         [disabled]="angForm.pristine || angForm.invalid">Update ToDo</button>
-      </div>
-  
-      </form>
+<div class="container">
+  <!-- <div class="card-body"> -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit(todoDescription.value, todoStatus.value, todoPriority.value, todoDeadline.value)">
+    <div class="form-group">
+      <label>Update ToDo Description</label>
+      <textarea class="form-control" rows="3" formControlName="todoDescription" #todoDescription></textarea>
     </div>
-  </div>
+
+    <div *ngIf="form.controls['todoDescription'].invalid && (form.controls['todoDescription'].dirty || form.controls['todoDescription'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['todoDescription'].errors.required">
+        To-Do description is required is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label>Update Status</label>
+     <input type="text" class="form-control" formControlName="todoStatus" #todoStatus/>
+      <!-- <select class="form-control" formControlName="todoStatus" #todoStaus>
+       <option>Not started</option>
+       <option>In progress</option>
+       <option>Completed</option>
+     </select> -->
+    </div>
+
+    <div *ngIf="form.controls['todoStatus'].invalid && (form.controls['todoStatus'].dirty || form.controls['todoStatus'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['todoDescription'].errors.required">
+        To-Do Status is required is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label>Update Priority</label>
+     <input type="text" class="form-control" formControlName="todoPriority" #todoPriority/>
+      <!-- <select class="form-control" formControlName="todoPriority" #todoPriority>
+       <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select> -->
+    </div>
+
+    <div *ngIf="form.controls['todoStatus'].invalid && (form.controls['todoStatus'].dirty || form.controls['todoStatus'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['todoStaus'].errors.required">
+        To-Do status is required is required.
+      </div>
+    </div>
+ 
+    <div class="form-group">
+     <label >Update Due date</label>
+     <input  type="text" class="form-control" formControlName="todoDeadline" placeholder="MM/DD/YYYY" #todoDeadline/>
+    </div>
+
+    <div *ngIf="form.controls['todoDeadline'].invalid && (form.controls['todoDeadline'].dirty || form.controls['todoDeadline'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['todoDeadline'].errors.required">
+        To-Do deadline is required is required.
+      </div>
+    </div>
+
+   
+    <div class="form-group">
+       <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Update ToDo</button>
+    </div>
+
+    </form>
+  <!-- </div> -->
+</div>
