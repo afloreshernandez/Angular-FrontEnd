@@ -1,1 +1,40 @@
-<p>edit-to-do works!</p>
+<div class="card">
+    <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Edit ToDo Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+  
+      <div class="form-group">
+       <label for="exampleFormControlSelect1">Status</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+         <option>Not started</option>
+         <option>In progress</option>
+         <option>Completed</option>
+       </select>
+      </div>
+  
+      <div class="form-group">
+       <label for="exampleFormControlSelect1">Priority</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+         <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+      </div>
+   
+      <div class="form-group">
+       <label >Due date:</label>
+       <input  type="text" class="form-control" placeholder="MM/DD/YYYY"/>
+      </div>
+  
+     
+      <div class="form-group">
+         <button type="submit" class="btn btn-primary"
+         [disabled]="angForm.pristine || angForm.invalid">Update ToDo</button>
+      </div>
+  
+      </form>
+    </div>
+  </div>
