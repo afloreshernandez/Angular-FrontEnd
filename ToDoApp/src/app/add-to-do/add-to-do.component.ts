@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../ToDo.service';
+import { TodoserviceService }  from '../todoservice.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from  '@angular/forms'; 
 
@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from  '@angular/forms';
 export class AddToDoComponent implements OnInit {
 
   form : FormGroup;
-  constructor(private fb: FormBuilder, private todoService: TodoService, private router: Router) { 
+  constructor(private fb: FormBuilder, private todoService: TodoserviceService, private router: Router) { 
     this.createForm();
   }
 

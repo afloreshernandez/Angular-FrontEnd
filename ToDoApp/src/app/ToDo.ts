@@ -1,7 +1,7 @@
 export class Todo {
-    id: number;
     todoDescription: string;
-    todoPriority: string;
     todoStatus: string;
+    todoPriority: string;
     todoDeadline: string;
+    id: number;
 }
