@@ -1,5 +1,5 @@
-<div class="card">
-  <div class="card-body">
+<div class="container">
+  <!-- <div class="card-body"> -->
   <form [formGroup]="form" (ngSubmit)="onSubmit(todoDescription.value, todoStatus.value, todoPriority.value, todoDueDate.value, todoDueTime.value)">
     <div class="form-group">
       <label>ToDo Description</label>
@@ -8,7 +8,7 @@
 
     <div *ngIf="form.controls['todoDescription'].invalid && (form.controls['todoDescription'].dirty || form.controls['todoDescription'].touched)" class="alert alert-danger">
       <div *ngIf="form.controls['todoDescription'].errors.required">
-        To-Do description is required is required.
+        To-Do description is required.
       </div>
     </div>
 
@@ -23,8 +23,8 @@
     </div>
 
     <div *ngIf="form.controls['todoStatus'].invalid && (form.controls['todoStatus'].dirty || form.controls['todoStatus'].touched)" class="alert alert-danger">
-      <div *ngIf="form.controls['todoDescription'].errors.required">
-        To-Do Status is required is required.
+      <div *ngIf="form.controls['todoStatus'].errors.required">
+        To-Do status is required.
       </div>
     </div>
 
@@ -38,9 +38,9 @@
       </select> -->
     </div>
 
-    <div *ngIf="form.controls['todoStatus'].invalid && (form.controls['todoStatus'].dirty || form.controls['todoStatus'].touched)" class="alert alert-danger">
-      <div *ngIf="form.controls['todoStaus'].errors.required">
-        To-Do status is required is required.
+    <div *ngIf="form.controls['todoPriority'].invalid && (form.controls['todoPriority'].dirty || form.controls['todoPriority'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['todoPriority'].errors.required">
+        To-Do priority is required.
       </div>
     </div>
  
@@ -51,7 +51,7 @@
 
     <div *ngIf="form.controls['todoDueDate'].invalid && (form.controls['todoDueDate'].dirty || form.controls['todoDueDate'].touched)" class="alert alert-danger">
       <div *ngIf="form.controls['todoDueDate'].errors.required">
-        To-Do deadline is required is required.
+        To-Do deadline is required.
       </div>
     </div>
 
@@ -62,7 +62,7 @@
  
      <div *ngIf="form.controls['todoDueTime'].invalid && (form.controls['todoDueTime'].dirty || form.controls['todoDueTime'].touched)" class="alert alert-danger">
        <div *ngIf="form.controls['todoDueTime'].errors.required">
-         To-Do deadline is required is required.
+         To-Do deadline is required.
        </div>
      </div>
 
@@ -72,5 +72,5 @@
     </div>
 
     </form>
-  </div>
+  <!-- </div> -->
 </div>
