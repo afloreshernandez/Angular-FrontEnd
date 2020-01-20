@@ -12,15 +12,14 @@
       </tr>
     </thead>
 
-    <pre>{{todos | json }}</pre>
+    <!-- <pre>{{todos | json }}</pre> -->
     <tbody>
         <tr *ngFor="let todo of todos">
-            <td>{{ todo.todoDescription }}</td>
-            <td>{{ todo.todoStatus }}</td>
-            <td>{{ todo.todoPriority }}</td>
-            <td>{{ todo.todoDueDate }}</td>
-            <td>{{ todo.todoDueTime }} </td>
-            <td>{{ todo.todoUser }} </td>
+            <td>{{ todo.description }}</td>
+            <td>{{ todo.status }}</td>
+            <td>{{ todo.priority }}</td>
+            <td>{{ todo.dueDate }}</td>
+            <td>{{ todo.dueTime }} </td>
             <td><a [routerLink]="['/todos/edit', todo.id]" class="btn btn-primary">Edit</a></td>
             <td><a (click) = "deleteToDo(todo.id)" class="btn btn-danger">Delete</a></td>
         </tr>
