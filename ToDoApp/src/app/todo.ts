@@ -1,7 +1,11 @@
+import { User } from './user';
+
 export class Todo {
-    id: number;
+    id: any;
     todoDescription: string;
     todoPriority: string;
     todoStatus: string;
-    todoDeadline: string;
+    todoDueDate: string;
+    todoDueTime: string;
+    todoUser: any;
 }

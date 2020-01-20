@@ -6,18 +6,23 @@
             <td>Priority</td>
             <td>Status</td>
             <td>Due Date</td>
+            <td>Due Time</td>
+            <td>User</td>
             <td>Actions</td>
       </tr>
     </thead>
 
+    <pre>{{todos | json }}</pre>
     <tbody>
-        <tr>
-            <td>Desc</td>
-            <td>Priority</td>
-            <td>Status</td>
-            <td>DueDate</td>
-            <td><a [routerLink]="['/todos/edit', toDo.id]" class="btn btn-primary">Edit</a></td>
-            <td><a (click) = "deleteToDo(toDo.id)" class="btn btn-danger">Delete</a></td>
+        <tr *ngFor="let todo of todos">
+            <td>{{ todo.todoDescription }}</td>
+            <td>{{ todo.todoStatus }}</td>
+            <td>{{ todo.todoPriority }}</td>
+            <td>{{ todo.todoDueDate }}</td>
+            <td>{{ todo.todoDueTime }} </td>
+            <td>{{ todo.todoUser }} </td>
+            <td><a [routerLink]="['/todos/edit', todo.id]" class="btn btn-primary">Edit</a></td>
+            <td><a (click) = "deleteToDo(todo.id)" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
 

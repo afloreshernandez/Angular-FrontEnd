@@ -23,13 +23,14 @@ export class AddToDoComponent implements OnInit {
       todoDescription: ['', Validators.required], 
       todoStatus: ['', Validators.required],
       todoPriority: ['', Validators.required],
-      todoDeadline: ['', Validators.required]
+      todoDueDate: ['', Validators.required],
+      todoDueTime: ['', Validators.required]
     })
   }
 
-  onSubmit(todoDescription, todoStatus, todoPriority, todoDeadline){
+  onSubmit(todoDescription, todoStatus, todoPriority, todoDueDate, todoDueTime){
     console.log(this.form);
-    this.todoService.addToDo(todoDescription, todoStatus, todoPriority, todoDeadline);
+    this.todoService.addToDo(todoDescription, todoStatus, todoPriority, todoDueDate, todoDueTime);
   }
 
 }

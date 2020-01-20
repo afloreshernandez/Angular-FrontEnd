@@ -9,7 +9,7 @@ import { ViewToDoListComponent } from './view-to-do-list/view-to-do-list.compone
 import { AddToDoComponent } from './add-to-do/add-to-do.component';
 import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

@@ -11,12 +11,13 @@ export class TodoserviceService {
 
   constructor(private http: HttpClient) { }
 
-  addToDo(todoDescription, todoStatus, todoPriority, todoDeadline) {
+  addToDo(todoDescription, todoStatus, todoPriority, todoDueDate, todoDueTime) {
     const obj = {
       todoDescription,
       todoPriority,
       todoStatus,
-      todoDeadline
+      todoDueDate,
+      todoDueTime
     };
     console.log('check object before posting ');
     console.log(obj);
@@ -32,12 +33,13 @@ export class TodoserviceService {
       return this.http.get(`${this.uri}/${id}`);
   }
 
-  updateToDo(todoDescription, todoPriority, todoStatus, todoDeadline, id) {
+  updateToDo(todoDescription, todoPriority, todoStatus, todoDueDate, todoDueTime, id) {
     const obj = {
       todoDescription,
       todoPriority,
       todoStatus,
-      todoDeadline
+      todoDueDate,
+      todoDueTime
     };
 
     console.log(`${this.uri}/${Number(id)}`);
