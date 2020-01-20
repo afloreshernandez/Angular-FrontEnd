@@ -16,10 +16,8 @@
      <label>Update Status</label>
      <!-- <input type="text" class="form-control" formControlName="status" #status [(ngModel)]="todo.status"/> -->
       <select class="form-control" formControlName="status" #status [(ngModel)]="todo.status">
-       <option>Not started</option>
-       <option>In progress</option>
-       <option>Completed</option>
-     </select>
+        <option *ngFor="let stat of allStatuses" [ngValue]="stat">{{ stat }} </option>
+      </select>
     </div>
 
     <!-- <div *ngIf="form.controls['status'].invalid && (form.controls['status'].dirty || form.controls['status'].touched)" class="alert alert-danger">
@@ -30,12 +28,10 @@
 
     <div class="form-group">
      <label>Update Priority</label>
-     <input type="text" class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority"/>
-      <!-- <select class="form-control" formControlName="todoPriority" #todoPriority>
-       <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select> -->
+     <!-- <input type="text" class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority"/> -->
+      <select class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority">
+       <option *ngFor="let prior of allPriorities" [ngValue]="prior">{{ prior }} </option>
+      </select>
     </div>
 <!-- 
     <div *ngIf="form.controls['priority'].invalid && (form.controls['priority'].dirty || form.controls['priority'].touched)" class="alert alert-danger">
