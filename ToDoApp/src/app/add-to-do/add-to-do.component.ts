@@ -26,7 +26,7 @@ export class AddToDoComponent implements OnInit {
       priority: ['', Validators.required],
       dueDate: ['', Validators.required],
       dueTime: ['', Validators.required]
-    })
+    });
   }
 
   onSubmit(description, status, priority, dueDate, dueTime){

@@ -11,6 +11,7 @@ import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ViewToDoListComponent,
     AddToDoComponent,
-    EditToDoComponent
+    EditToDoComponent, 
+    LoginComponent
   ],
   imports: [
     BrowserModule,

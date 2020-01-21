@@ -21,7 +21,7 @@
             </div>
     
             <div *ngIf="form.controls['userPassword'].invalid && (form.controls['userPassword'].dirty || form.controls['userPassword'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['userName'].errors.required">
+                <div *ngIf="form.controls['userPassword'].errors.required">
                   Password is required.
                 </div>
               </div>

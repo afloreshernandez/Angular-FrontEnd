@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { timingSafeEqual } from 'crypto';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ export class UserserviceService {
 
   }
 
-  validateUser(userId){
+  getUserById(userId){
     return this.http.get(`${this.uri}/users/${userId}`);
   }
 
