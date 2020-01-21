@@ -20,7 +20,7 @@
             <td>{{ todo.dueDate }}</td>
             <td>{{ todo.dueTime }} </td>
             <td><a [routerLink]="['/todos/edit', todo.id]" class="btn btn-primary">Edit</a></td>
-            <td><a (click) = "deleteToDo(todo.id)" class="btn btn-danger">Delete</a></td>
+            <td><a (click) = "deleteTodo(todo.id)" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
 
