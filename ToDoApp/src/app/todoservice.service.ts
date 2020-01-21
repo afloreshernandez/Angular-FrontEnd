@@ -26,7 +26,7 @@ export class TodoserviceService {
   }
 
   getTodos() {
-    return this.http.get(`${this.uri}/todos/1`);
+    return this.http.get(`${this.uri}/todos/3`);
 
   }
 
@@ -40,7 +40,7 @@ export class TodoserviceService {
       priority,
       status,
       dueDate,
-      dueTime
+      dueTime 
     };
 
     console.log(`${this.uri}/${Number(id)}`);
