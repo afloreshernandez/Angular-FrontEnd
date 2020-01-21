@@ -1,4 +1,15 @@
+
 <div class="container">
+
+<!-- <div class="dropdown">
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <a (click)="changeUserId(1)" class="btn btn-primary">Judge(id=1)</a>
+            <a (click)="changeUserId(2)" class="btn btn-primary">Clerk(id=2)</a>
+            <a (click)="changeUserId(3)" class="btn btn-primary">Admin(id=3)</a>
+          </div>
+        </div> -->
+  
 <table class="table table-hover">
     <thead>
         <tr>
@@ -7,11 +18,15 @@
             <td>Status</td>
             <td>Due Date</td>
             <td>Due Time</td>
+
+            <td>User</td>
+            <td>Actions</td>
+      </tr>
+    </thead>
             <td colspan="2">Actions</td>
       </tr>
     </thead>
 
-    <!-- <pre>{{todos | json }}</pre> -->
     <tbody>
         <tr *ngFor="let todo of todos">
             <td>{{ todo.description }}</td>
@@ -25,4 +40,7 @@
     </tbody>
 
 </table>
+
 </div>
+
+
