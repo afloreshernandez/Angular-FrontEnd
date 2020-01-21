@@ -12,6 +12,9 @@ export class EditToDoComponent implements OnInit {
 
   form: FormGroup;
   todo: any = {};
+  allPriorities = ['URGENT', 'IMPORTANT', 'NORMAL', 'OPTIONAL'];
+  allStatuses = ['PENDING', 'COMPLETE', 'PAST DUE', 'IGNORED', 'FAILED'];
+
   constructor(private route: ActivatedRoute, private router:Router, private todoService: TodoserviceService, private fb: FormBuilder) { 
     this.createForm();
   }
@@ -21,7 +24,7 @@ export class EditToDoComponent implements OnInit {
       console.log('edit id: ' + params.id);
       this.todoService.editToDo(params.id).subscribe(res => {
         this.todo = res;
-        console.log("ediy todo");
+    //    console.log("ediy todo");
    //     console.log(this.todo[0].description);
         console.log(this.todo);
       });
@@ -38,10 +41,11 @@ export class EditToDoComponent implements OnInit {
     });
   }
 
-  updateTodo(todoDescription, todoStatus, todoPriority, todoDueDate, todoDueTime){
+  updateTodo(description, status, priority, dueDate, dueTime){
     this.route.params.subscribe(params => {
-      console.log('params id = ' + params.id);
-      this.todoService.updateToDo(todoDescription, todoStatus, todoPriority, todoDueDate, todoDueTime, parseInt(params.id, 10));
+   //   console.log('params id = ' + params.id);
+   //   console.log(this.form);
+      this.todoService.updateToDo(description, status, priority, dueDate, dueTime, parseInt(params.id, 10));
     });
   }
 
