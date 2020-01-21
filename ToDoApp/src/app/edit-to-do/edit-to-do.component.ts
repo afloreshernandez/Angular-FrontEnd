@@ -42,6 +42,7 @@ export class EditToDoComponent implements OnInit {
   updateTodo(description, status, priority, dueDate, dueTime){
     this.route.params.subscribe(params => {
       this.todoService.updateToDo(description, priority, status, dueDate, dueTime, parseInt(params.id, 10));
+      this.router.navigateByUrl('todos/view');
     });
   }
 

@@ -9,6 +9,7 @@ export class TodoserviceService {
  
   uri = 'http://localhost:8080';
 
+  
   constructor(private http: HttpClient) { }
 
   addToDo(description, status, priority, dueDate, dueTime) {
@@ -21,7 +22,7 @@ export class TodoserviceService {
     };
     console.log('check object before posting ');
     console.log(obj);
-    this.http.post(`${this.uri}/todos/1`, obj)
+    this.http.post(`${this.uri}/todos/3`, obj)
         .subscribe(res => console.log('Done'));
   }
 

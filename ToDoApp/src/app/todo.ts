@@ -7,5 +7,5 @@ export class Todo {
     todoStatus: string;
     todoDueDate: string;
     todoDueTime: string;
- //   todoUser: any;
+    todoUser: any;
 }
