@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ViewToDoListComponent } from './view-to-do-list/view-to-do-list.component';
 import { AddToDoComponent } from './add-to-do/add-to-do.component';
 import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

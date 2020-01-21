@@ -1,1 +1,72 @@
-<p>edit-to-do works!</p>
+<div class="container">
+  <!-- <div class="card-body"> -->
+  <form [formGroup]="form" (ngSubmit)="updateTodo(description.value, status.value, priority.value, dueDate.value, dueTime.value)" novalidate>
+    <div class="form-group">
+      <label>Update ToDo Description</label>
+      <textarea class="form-control" rows="3" formControlName="description" #description [(ngModel)] = "todo.description"></textarea>
+    </div>
+
+    <div *ngIf="form.controls['description'].invalid && (form.controls['description'].dirty || form.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['description'].errors.required">
+        To-Do description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label>Update Status</label>
+     <!-- <input type="text" class="form-control" formControlName="status" #status [(ngModel)]="todo.status"/> -->
+      <select class="form-control" formControlName="status" #status [(ngModel)]="todo.status">
+        <option *ngFor="let stat of allStatuses" [ngValue]="stat">{{ stat }} </option>
+      </select>
+    </div>
+
+    <!-- <div *ngIf="form.controls['status'].invalid && (form.controls['status'].dirty || form.controls['status'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['status'].errors.required">
+        To-Do Status is required.
+      </div>
+    </div> -->
+
+    <div class="form-group">
+     <label>Update Priority</label>
+     <!-- <input type="text" class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority"/> -->
+      <select class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority">
+       <option *ngFor="let prior of allPriorities" [ngValue]="prior">{{ prior }} </option>
+      </select>
+    </div>
+<!-- 
+    <div *ngIf="form.controls['priority'].invalid && (form.controls['priority'].dirty || form.controls['priority'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['priority'].errors.required">
+        To-Do priority is required.
+      </div>
+    </div> -->
+ 
+    <div class="form-group">
+     <label>Update Due Date</label>
+     <input  type="text" class="form-control" formControlName="dueDate" placeholder="MM/DD/YYYY" #dueDate [(ngModel)]="todo.dueDate"/>
+    </div>
+
+    <!-- <div *ngIf="form.controls['dueDate'].invalid && (form.controls['dueDate'].dirty || form.controls['dueDate'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['dueDate'].errors.required">
+        To-Do deadline is required.
+      </div>
+    </div> -->
+
+    <div class="form-group">
+      <label>Update Due Time</label>
+      <input  type="text" class="form-control" formControlName="dueTime" placeholder="HH:MM" #dueTime [(ngModel)]="todo.dueTime"/>
+     </div>
+ 
+     <!-- <div *ngIf="form.controls['dueTime'].invalid && (form.controls['dueTime'].dirty || form.controls['dueTime'].touched)" class="alert alert-danger">
+       <div *ngIf="form.controls['todoDueTime'].errors.required">
+         To-Do deadline is required.
+       </div>
+     </div> -->
+
+   
+    <div class="form-group">
+       <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Update ToDo</button>
+    </div>
+
+    </form>
+  <!-- </div> -->
+</div>

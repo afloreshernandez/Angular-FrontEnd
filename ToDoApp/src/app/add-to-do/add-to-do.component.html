@@ -1,19 +1,83 @@
-<div class="container"> 
-<form>
+<div class="container">
+  <!-- <div class="card-body"> -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit(description.value, status.value, priority.value, dueDate.value, dueTime.value)">
     <div class="form-group">
-      <label>To-Do Description</label>
-      <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter To-Do description">
+      <label>ToDo Description</label>
+      <textarea class="form-control" rows="3" formControlName="description" #description></textarea>
+    </div>
 
+    <div *ngIf="form.controls['description'].invalid && (form.controls['description'].dirty || form.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['description'].errors.required">
+        To-Do description is required.
+      </div>
     </div>
+
     <div class="form-group">
-      <label>Status</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Status">
-      <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
+     <label>Status</label>
+     <!-- <input type="text" class="form-control" formControlName="status" #status/> -->
+      <select class="form-control" formControlName="status" #status>
+        <!-- <option *ngFor="let stat of allStatuses" [ngValue]="stat">{{ stat }} </option> -->
+        <option disabled>Select status</option>
+        <option>PENDING</option>
+        <option>COMPLETE</option>
+        <option>PAST DUE</option>
+        <option>IGNORED</option>
+        <option>FAILED</option>
+      </select>
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+    <div *ngIf="form.controls['status'].invalid && (form.controls['status'].dirty || form.controls['status'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['status'].errors.required">
+        To-Do status is required.
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+    <div class="form-group">
+     <label>Priority</label>
+     <!-- <input type="text" class="form-control" formControlName="priority" #priority/> -->
+      <select class="form-control" formControlName="priority" #priority>
+        <!-- <option *ngFor="let prior of allPriorities" [ngValue]="prior">{{ prior }} </option> -->
+        <option disabled>Select priority</option>
+        <option>URGENT</option>
+        <option>IMPORTANT</option>
+        <option>NORMAL</option>
+        <option>OPTIONAL</option>
+      </select>
+    </div>
+
+    <div *ngIf="form.controls['priority'].invalid && (form.controls['priority'].dirty || form.controls['priority'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['priority'].errors.required">
+        To-Do priority is required.
+      </div>
+    </div>
+ 
+    <div class="form-group">
+     <label>Due Date</label>
+     <input  type="text" class="form-control" formControlName="dueDate" placeholder="MM/DD/YYYY" #dueDate/>
+    </div>
+
+    <div *ngIf="form.controls['dueDate'].invalid && (form.controls['dueDate'].dirty || form.controls['dueDate'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['dueDate'].errors.required">
+        To-Do deadline is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Due Time</label>
+      <input  type="text" class="form-control" formControlName="dueTime" placeholder="HH:MM" #dueTime/>
+     </div>
+ 
+     <div *ngIf="form.controls['dueTime'].invalid && (form.controls['dueTime'].dirty || form.controls['dueTime'].touched)" class="alert alert-danger">
+       <div *ngIf="form.controls['dueTime'].errors.required">
+         To-Do deadline is required.
+       </div>
+     </div>
+
+   
+    <div class="form-group">
+       <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Add ToDo</button>
+    </div>
+
+    </form>
+  <!-- </div> -->
 </div>
