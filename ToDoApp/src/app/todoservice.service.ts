@@ -26,7 +26,7 @@ export class TodoserviceService {
   }
 
   getToDos() {
-    return this.http.get(`${this.uri}`);
+    return this.http.get(`${this.uri}/todos/1`);
   }
 
   editToDo(id) {
