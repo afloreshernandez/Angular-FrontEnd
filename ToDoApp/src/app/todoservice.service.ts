@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ export class TodoserviceService {
   uri = 'http://localhost:8080';
 
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  addToDo(description, status, priority, dueDate, dueTime) {
+  addToDo(description, status, priority, dueDate, dueTime, id) {
     const obj = {
       description,
       priority,
@@ -22,17 +23,21 @@ export class TodoserviceService {
     };
     console.log('check object before posting ');
     console.log(obj);
-    this.http.post(`${this.uri}/todos/3`, obj)
-        .subscribe(res => console.log('Done'));
+    this.http.post(`${this.uri}/todos/${id}`, obj)
+        .subscribe(res => {console.log('Done')
+        this.router.navigateByUrl('todos/view');
+      
+      });
   }
 
-  getTodos() {
-    return this.http.get(`${this.uri}/todos/3`);
+
+  getTodos(userId) {
+    return this.http.get(`${this.uri}/todos/${userId}`);
 
   }
 
   editToDo(id) {
-      return this.http.get(`${this.uri}//todoId/${id}`);
+      return this.http.get(`${this.uri}/todoId/${id}`);
   }
 
   updateToDo(description, priority, status, dueDate, dueTime, id) {
@@ -46,8 +51,12 @@ export class TodoserviceService {
 
     console.log(`${this.uri}/${Number(id)}`);
 
-    this.http.put(`${this.uri}/todos/${id}`, obj)
-      .subscribe(res => console.log('Done'));
+    this.http.put(`${this.uri}/todos/${Number(id)}`, obj)
+      .subscribe(res => {
+        console.log('Done')
+      this.router.navigateByUrl('todos/view');
+    });
+
   }
 
 
