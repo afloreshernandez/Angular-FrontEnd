@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TodoserviceService }  from '../todoservice.service';
+import { UserserviceService } from '../userservice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -13,7 +14,7 @@ export class EditToDoComponent implements OnInit {
   form: FormGroup;
   todo: any = {};
   allPriorities = ['URGENT', 'IMPORTANT', 'NORMAL', 'OPTIONAL'];
-  allStatuses = ['PENDING', 'COMPLETE', 'PAST DUE', 'IGNORED', 'FAILED'];
+  allStatuses = ['PENDING', 'COMPLETE', 'PAST_DUE', 'IGNORED', 'FAILED'];
 
   constructor(private route: ActivatedRoute, private router:Router, private todoService: TodoserviceService, private fb: FormBuilder) { 
     this.createForm();
@@ -21,12 +22,9 @@ export class EditToDoComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log('edit id: ' + params.id);
+   //   console.log('edit id: ' + params.id);
       this.todoService.editToDo(params.id).subscribe(res => {
         this.todo = res;
-    //    console.log("ediy todo");
-   //     console.log(this.todo[0].description);
-        console.log(this.todo);
       });
     });
   }
@@ -43,9 +41,8 @@ export class EditToDoComponent implements OnInit {
 
   updateTodo(description, status, priority, dueDate, dueTime){
     this.route.params.subscribe(params => {
-   //   console.log('params id = ' + params.id);
-   //   console.log(this.form);
-      this.todoService.updateToDo(description, status, priority, dueDate, dueTime, parseInt(params.id, 10));
+      this.todoService.updateToDo(description, priority, status, dueDate, dueTime, parseInt(params.id, 10));
+      this.router.navigateByUrl('todos/view');
     });
   }
 

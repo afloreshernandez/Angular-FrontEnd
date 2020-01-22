@@ -9,6 +9,7 @@ export class TodoserviceService {
  
   uri = 'http://localhost:8080';
 
+  
   constructor(private http: HttpClient) { }
 
   addToDo(description, status, priority, dueDate, dueTime) {
@@ -21,16 +22,16 @@ export class TodoserviceService {
     };
     console.log('check object before posting ');
     console.log(obj);
-    this.http.post(`${this.uri}`, obj)
+    this.http.post(`${this.uri}/todos/3`, obj)
         .subscribe(res => console.log('Done'));
   }
 
-  getToDos() {
-    return this.http.get(`${this.uri}/todos/1`);
+  getTodos() {
+    return this.http.get(`${this.uri}/todos/3`);
   }
 
   editToDo(id) {
-      return this.http.get(`${this.uri}/${id}`);
+      return this.http.get(`${this.uri}//todoId/${id}`);
   }
 
   updateToDo(description, priority, status, dueDate, dueTime, id) {
@@ -39,18 +40,18 @@ export class TodoserviceService {
       priority,
       status,
       dueDate,
-      dueTime
+      dueTime 
     };
 
     console.log(`${this.uri}/${Number(id)}`);
 
-    this.http.put(`${this.uri}/${Number(id)}`, obj)
+    this.http.put(`${this.uri}/todos/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
 
 
-  deleteToDo(id) {
-    return this.http.delete(`${this.uri}/${Number(id)}`);
+  deleteTodo(id) {
+    return this.http.delete(`${this.uri}/todos/${id}`);
   }
 
 }
