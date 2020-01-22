@@ -1,25 +1,38 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from './auth.service';
 
-import { LoginComponent } from './login.component';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+  username: string;
+  password : string;
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
-  }));
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {   }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  ngOnInit() {
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  handleLogin() {
+    this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
+      this.invalidLogin = false;
+      this.loginSuccess = true;
+      this.successMessage = 'Login Successful.';
+      this.router.navigate(['todos/view']);
+    }, () => {
+      this.invalidLogin = true;
+      this.loginSuccess = false;
+    });      
+  }
+}

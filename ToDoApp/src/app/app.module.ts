@@ -9,8 +9,11 @@ import { ViewToDoListComponent } from './view-to-do-list/view-to-do-list.compone
 import { AddToDoComponent } from './add-to-do/add-to-do.component';
 import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorService } from './httpInterceptor.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -20,16 +23,24 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     ViewToDoListComponent,
     AddToDoComponent,
-    EditToDoComponent, 
-    LoginComponent
+    EditToDoComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

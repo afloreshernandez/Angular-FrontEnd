@@ -9,7 +9,11 @@ const routes: Routes = [
   { path : 'todos/view', component: ViewToDoListComponent}, 
   { path : 'todos/add', component: AddToDoComponent},
   { path : 'todos/edit/:id', component: EditToDoComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
+  {path: 'todos/logout', component: LoginComponent},
   { path : 'todos/login', component: LoginComponent}
+
 ];
 
 @NgModule({
@@ -17,3 +21,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
