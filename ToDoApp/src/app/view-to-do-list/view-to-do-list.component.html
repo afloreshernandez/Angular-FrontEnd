@@ -1,32 +1,28 @@
-
 <div class="container">
 
-<!-- <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
-          <div class="dropdown-content">
-            <a (click)="changeUserId(1)" class="btn btn-primary">Judge(id=1)</a>
-            <a (click)="changeUserId(2)" class="btn btn-primary">Clerk(id=2)</a>
-            <a (click)="changeUserId(3)" class="btn btn-primary">Admin(id=3)</a>
-          </div>
-        </div> -->
-  
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <td>ToDo Description</td>
-            <td>Priority</td>
-            <td>Status</td>
-            <td>Due Date</td>
-            <td>Due Time</td>
+<div>
+    <button (click)="changeUser(1)" class="btn btn-primary btn-sm m-2" >Judge</button>
+    <button (click)="changeUser(3)" class="btn btn-primary btn-sm m-2">Clerk</button>
+    <button (click)="changeUser(2)" class="btn btn-primary btn-sm m-2">Admin</button>
+</div>
 
-            <td>User</td>
-            <td>Actions</td>
+
+<div class="table">
+<table class="table table-striped table-responsive-md table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th style="max-width:300px">ToDo Description</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Due Date</th>
+            <th>Due Time</th>
+            <th colspan="2" style="text-align:center">Actions</th>
       </tr>
     </thead>
 
     <tbody>
         <tr *ngFor="let todo of todos">
-            <td>{{ todo.description }}</td>
+            <td style="max-width:300px">{{ todo.description }}</td>
             <td>{{ todo.status }}</td>
             <td>{{ todo.priority }}</td>
             <td>{{ todo.dueDate }}</td>
@@ -37,6 +33,7 @@
     </tbody>
 
 </table>
+</div>
 
 </div>
 
