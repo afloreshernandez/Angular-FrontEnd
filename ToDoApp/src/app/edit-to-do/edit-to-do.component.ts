@@ -13,8 +13,6 @@ export class EditToDoComponent implements OnInit {
 
   form: FormGroup;
   todo: any = {};
-  allPriorities = ['URGENT', 'IMPORTANT', 'NORMAL', 'OPTIONAL'];
-  allStatuses = ['PENDING', 'COMPLETE', 'PAST_DUE', 'IGNORED', 'FAILED'];
 
   constructor(private route: ActivatedRoute, private router:Router, private todoService: TodoserviceService, private fb: FormBuilder) { 
     this.createForm();
@@ -22,7 +20,6 @@ export class EditToDoComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-   //   console.log('edit id: ' + params.id);
       this.todoService.editToDo(params.id).subscribe(res => {
         this.todo = res;
       });
@@ -42,8 +39,10 @@ export class EditToDoComponent implements OnInit {
   updateTodo(description, status, priority, dueDate, dueTime){
     this.route.params.subscribe(params => {
       this.todoService.updateToDo(description, priority, status, dueDate, dueTime, parseInt(params.id, 10));
-      this.router.navigateByUrl('todos/view');
+     
     });
+
+    
   }
 
 }
