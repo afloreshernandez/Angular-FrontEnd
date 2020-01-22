@@ -6,18 +6,16 @@
       <textarea class="form-control" rows="3" formControlName="description" #description [(ngModel)] = "todo.description"></textarea>
     </div>
 
-    <div *ngIf="form.controls['description'].invalid && (form.controls['description'].dirty || form.controls['description'].touched)" class="alert alert-danger">
-      <div *ngIf="form.controls['description'].errors.required">
-        To-Do description is required.
-      </div>
-    </div>
-
     <div class="form-group">
      <label>Update Status</label>
-     <!-- <input type="text" class="form-control" formControlName="status" #status [(ngModel)]="todo.status"/> -->
       <select class="form-control" formControlName="status" #status [(ngModel)]="todo.status">
-        <option *ngFor="let stat of allStatuses" [ngValue]="stat">{{ stat }} </option>
-      </select>
+          <option disabled>Select status</option>
+          <option>PENDING</option>
+          <option>COMPLETE</option>
+          <option>PAST DUE</option>
+          <option>IGNORED</option>
+          <option>FAILED</option>
+        </select>
     </div>
 
     <!-- <div *ngIf="form.controls['status'].invalid && (form.controls['status'].dirty || form.controls['status'].touched)" class="alert alert-danger">
@@ -28,9 +26,12 @@
 
     <div class="form-group">
      <label>Update Priority</label>
-     <!-- <input type="text" class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority"/> -->
       <select class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority">
-       <option *ngFor="let prior of allPriorities" [ngValue]="prior">{{ prior }} </option>
+        <option disabled>Select priority</option>
+        <option>URGENT</option>
+        <option>IMPORTANT</option>
+        <option>NORMAL</option>
+        <option>OPTIONAL</option>
       </select>
     </div>
 <!-- 
@@ -64,7 +65,7 @@
 
    
     <div class="form-group">
-       <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Update ToDo</button>
+       <button type="submit" class="btn btn-primary">Update ToDo</button>
     </div>
 
     </form>

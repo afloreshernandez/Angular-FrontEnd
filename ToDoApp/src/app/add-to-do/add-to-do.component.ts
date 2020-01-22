@@ -11,7 +11,6 @@ import { FormGroup, FormBuilder, Validators } from  '@angular/forms';
 export class AddToDoComponent implements OnInit {
 
   form : FormGroup;
-
   constructor(private fb: FormBuilder, private todoService: TodoserviceService, private router: Router) { 
     this.createForm();
   }
@@ -26,12 +25,13 @@ export class AddToDoComponent implements OnInit {
       priority: ['', Validators.required],
       dueDate: ['', Validators.required],
       dueTime: ['', Validators.required]
-    })
+    });
   }
 
   onSubmit(description, status, priority, dueDate, dueTime){
  //   console.log(this.form);
     this.todoService.addToDo(description, status, priority, dueDate, dueTime);
+    this.router.navigateByUrl('todos/view');
   }
 
 }

@@ -53,7 +53,7 @@
  
     <div class="form-group">
      <label>Due Date</label>
-     <input  type="text" class="form-control" formControlName="dueDate" placeholder="MM/DD/YYYY" #dueDate/>
+     <input  type="text" class="form-control" formControlName="dueDate" placeholder="YYYY/DD/MM" #dueDate/>
     </div>
 
     <div *ngIf="form.controls['dueDate'].invalid && (form.controls['dueDate'].dirty || form.controls['dueDate'].touched)" class="alert alert-danger">
@@ -64,7 +64,7 @@
 
     <div class="form-group">
       <label>Due Time</label>
-      <input  type="text" class="form-control" formControlName="dueTime" placeholder="HH:MM" #dueTime/>
+      <input  type="text" class="form-control" formControlName="dueTime" placeholder="HH:MM:SS" #dueTime/>
      </div>
  
      <div *ngIf="form.controls['dueTime'].invalid && (form.controls['dueTime'].dirty || form.controls['dueTime'].touched)" class="alert alert-danger">
@@ -73,7 +73,10 @@
        </div>
      </div>
 
-   
+     <!-- <div class="form-group">
+      <input  type="hidden" formControlName="userId" placeholder="HH:MM" #userId/>
+     </div> -->
+
     <div class="form-group">
        <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Add ToDo</button>
     </div>

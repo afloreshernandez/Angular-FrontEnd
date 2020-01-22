@@ -14,7 +14,7 @@ export class ViewToDoListComponent implements OnInit {
   constructor(private todoService: TodoserviceService, private router: Router) { }
 
   ngOnInit() {
-    this.todoService.getToDos().subscribe((data:any) => {
+    this.todoService.getTodos().subscribe((data:any) => {
       console.log(data);
       this.todos = data;
     });
@@ -23,12 +23,12 @@ export class ViewToDoListComponent implements OnInit {
 
   deleteTodo(id){
     console.log('delete todo with id = ' + id);
-    this.todoService.deleteToDo(id).subscribe(res =>{
+    this.todoService.deleteTodo(id).subscribe(res =>{
       console.log('delete res= ' + res);
 
-      this.todoService.getToDos().subscribe((data:any) => {
+      this.todoService.getTodos().subscribe((data:any) => {
         console.log(data);
-        this.todos = data._embedded.todos;
+        this.todos = data;
       });
     });
   }
