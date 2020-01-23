@@ -10,6 +10,7 @@ export class TodoserviceService {
  
   uri = 'http://localhost:8080';
 
+  toDoDate : string = '2020-01-24';
   
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -35,7 +36,7 @@ export class TodoserviceService {
   }
 
   getDailyTodos(userId){
-    return this.http.get(`${this.uri}/daily/${userId}`);
+    return this.http.get(`${this.uri}/daily/postDailies/${userId}/${this.toDoDate}`);
   }
 
   getTodos(userId) {
