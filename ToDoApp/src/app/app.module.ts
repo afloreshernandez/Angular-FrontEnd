@@ -15,6 +15,7 @@ import { HttpInterceptorService } from './httpInterceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { LoginComponent } from './login/login.component';
+import { ViewAdminListComponent } from './view-admin-list/view-admin-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     AddToDoComponent,
     EditToDoComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ViewAdminListComponent
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,13 @@ export class TodoserviceService {
       });
   }
 
+  getAllTodos(){
+    return this.http.get(`${this.uri}/todos/`);
+  }
+
+  getDailyTodos(userId){
+    return this.http.get(`${this.uri}/daily/${userId}`);
+  }
 
   getTodos(userId) {
     return this.http.get(`${this.uri}/todos/${userId}`);

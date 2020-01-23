@@ -1,9 +1,11 @@
 <div class="container">
 
-<div>
-    <button (click)="changeUser(1)" class="btn btn-primary btn-sm m-2" >Judge</button>
-    <button (click)="changeUser(3)" class="btn btn-primary btn-sm m-2">Clerk</button>
-    <button (click)="changeUser(2)" class="btn btn-primary btn-sm m-2">Admin</button>
+<div class="table">
+    <button (click)="changeUser(1)" class="btn btn-primary btn-sm m-2" >County Judge</button>
+    <button (click)="changeUser(3)" class="btn btn-primary btn-sm m-2">District Clerk</button>
+    <button (click)="changeUser(2)" class="btn btn-primary btn-sm m-2">County Administrator</button>
+
+    <button (click)="populateTodos()" class="btn btn-primary btn-sm" style="float: right;">Populate Daily Tasks</button>
 </div>
 
 
@@ -12,8 +14,8 @@
     <thead class="thead-dark">
         <tr>
             <th style="max-width:300px">ToDo Description</th>
-            <th>Priority</th>
             <th>Status</th>
+            <th>Priority</th>
             <th>Due Date</th>
             <th>Due Time</th>
             <th colspan="2" style="text-align:center">Actions</th>

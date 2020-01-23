@@ -24,6 +24,7 @@ export class ViewToDoListComponent implements OnInit {
 
   changeUser(id){
     console.log("ID is " + id);
+    this.userId = id;
     this.todoService.getTodos(id).subscribe((data:any) => {
       console.log(data);
       this.todos = data;
@@ -43,6 +44,13 @@ export class ViewToDoListComponent implements OnInit {
         console.log(data);
         this.todos = data;
       });
+    });
+  }
+
+  populateTodos(){
+    this.todoService.getDailyTodos(this.userId).subscribe((data:any) => {
+      console.log(data);
+      this.todos = data;
     });
   }
 }
